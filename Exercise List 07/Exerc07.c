@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Autor: José Vanderlei Furtuna Tomé - 554397
+
 int main()
 {
 

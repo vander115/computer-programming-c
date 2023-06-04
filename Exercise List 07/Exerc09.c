@@ -2,6 +2,8 @@
 #include <string.h>
 #include <ctype.h>
 
+// Autor: José Vanderlei Furtuna Tomé - 554397
+
 int main()
 {
 
