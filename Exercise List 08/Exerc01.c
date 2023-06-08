@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Autor: José Vanderlei Furtuna Tomé - 554397
+
 int main()
 {
 

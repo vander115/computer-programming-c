@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Autor: José Vanderlei Furtuna Tomé - 554397
+
 int main()
 {
   int i;
@@ -13,39 +15,39 @@ int main()
     float media;
   } estudante;
 
-  estudante estudante1;
+  estudante estudante01;
 
   printf("Digite o nome do estudante: \n");
-  gets(estudante1.nome);
+  gets(estudante01.nome);
 
   printf("Digite a matricula do estudante: \n");
-  scanf("%d", &estudante1.matricula);
+  scanf("%d", &estudante01.matricula);
 
   for (i = 0; i < 3; i++)
   {
     printf("Digite a nota %d do aluno: \n", i + 1);
-    scanf("%f", &estudante1.notas[i]);
+    scanf("%f", &estudante01.notas[i]);
   }
 
   for (i = 0; i < 3; i++)
   {
-    soma += estudante1.notas[i];
+    soma += estudante01.notas[i];
   }
 
-  estudante1.media = soma / 3.0;
+  estudante01.media = soma / 3.0;
 
   printf("\nOs dados do aluno sao: \n");
 
-  printf("Nome: %s\n", estudante1.nome);
-  printf("Matricula: %d\n", estudante1.matricula);
+  printf("Nome: %s\n", estudante01.nome);
+  printf("Matricula: %d\n", estudante01.matricula);
   printf("Notas: ");
   for (i = 0; i < 3; i++)
   {
-    printf("%.1f ", estudante1.notas[i]);
+    printf("%.1f ", estudante01.notas[i]);
   }
-  printf("\nMedia: %.2f", estudante1.media);
+  printf("\nMedia: %.2f\n", estudante01.media);
 
-  printf("O tamanho alocado na memoria é: %d bytes", sizeof(estudante1));
+  printf("O tamanho alocado na memoria e: %d bytes", sizeof(estudante01));
 
   return 0;
 }

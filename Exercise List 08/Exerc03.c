@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// Autor: José Vanderlei Furtuna Tomé - 554397
+
 typedef struct
 {
   char nome[50];
@@ -14,28 +16,18 @@ int main()
   printf("Digite uma quantidade para criar cadastros: ");
   scanf("%d", &N);
 
-  Cadastro vet[N];
+  Cadastro pessoas[N];
 
   for (i = 0; i < N; i++)
   {
-    printf("\n\nRegistro %d\n ", i + 1);
-
-    printf("Digite o nome: ");
-    scanf(" %[^\n]s", vet[i].nome);
-
-    printf("\nDigite o telefone: ");
-    scanf(" %[^\n]s", vet[i].telefone);
-
-    printf("\nDigite o endereco: ");
-    scanf(" %[^\n]s", vet[i].endereco);
+    printf("\n\nRegistro %02d\n", i + 1);
+    cadastrarPessoa(&pessoas[i]);
   }
 
   for (i = 0; i < N; i++)
   {
     printf("\nRegistro %02d\n", i + 1);
-    printf("\nNome: %s", vet[i].nome);
-    printf("\nTelefone: %s", vet[i].telefone);
-    printf("\nEndereco: %s", vet[i].endereco);
+    imprimirPessoa(pessoas[i]);
   }
   return 0;
 }

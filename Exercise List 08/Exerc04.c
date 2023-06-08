@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+// Autor: José Vanderlei Furtuna Tomé - 554397
+
 typedef struct
 {
   char nome[50];
@@ -8,41 +10,45 @@ typedef struct
   char endereco[100];
 } Cadastro;
 
-void imprimirRegistro(Cadastro registro, int index)
+void cadastrarPessoa(Cadastro *pessoa)
 {
-  printf("\nRegistro %02d\n", index);
-  printf("Nome: %s\n", registro.nome);
-  printf("Telefone: %s\n", registro.telefone);
-  printf("Endereco: %s\n", registro.endereco);
+  printf("Digite o nome: ");
+  scanf(" %[^\n]s", pessoa->nome);
+
+  printf("Digite o telefone: ");
+  scanf(" %[^\n]s", &(pessoa->telefone));
+
+  printf("Digite o endereco: ");
+  scanf(" %[^\n]s", &(pessoa->endereco));
+}
+
+void imprimirPessoa(Cadastro pessoa)
+{
+  printf("Nome: %s\n", pessoa.nome);
+  printf("Telefone: %s\n", pessoa.telefone);
+  printf("Endereco: %s\n", pessoa.endereco);
 }
 
 int main()
 {
   int N, i, j, encontrado = 0;
-  char busca[50];
+  char busca[50], nome[50];
 
   printf("Digite uma quantidade para criar cadastros: ");
   scanf("%d", &N);
 
-  Cadastro vet[N];
+  Cadastro pessoas[N];
 
   for (i = 0; i < N; i++)
   {
-    printf("\n\nRegistro %d\n ", i + 1);
-
-    printf("Digite o nome: ");
-    scanf(" %[^\n]s", vet[i].nome);
-
-    printf("Digite o telefone: ");
-    scanf(" %[^\n]s", vet[i].telefone);
-
-    printf("Digite o endereco: ");
-    scanf(" %[^\n]s", vet[i].endereco);
+    printf("\n\nRegistro %02d\n", i + 1);
+    cadastrarPessoa(&pessoas[i]);
   }
 
   for (i = 0; i < N; i++)
   {
-    imprimirRegistro(vet[i], i + 1);
+    printf("\nRegistro %02d\n", i + 1);
+    imprimirPessoa(pessoas[i]);
   }
 
   do
@@ -65,9 +71,11 @@ int main()
     encontrado = 0;
     for (i = 0; i < N; i++)
     {
-      if (strcmp(strtok(vet[i].nome, " "), busca) == 0)
+      strcpy(nome, pessoas[i].nome);
+      if (strcmp(strtok(nome, " "), busca) == 0)
       {
-        imprimirRegistro(vet[i], i + 1);
+        printf("Registro %02d\n", i + 1);
+        imprimirPessoa(pessoas[i]);
         encontrado = 1;
         break;
       }
@@ -84,9 +92,10 @@ int main()
     encontrado = 0;
     for (i = 0; i < N; i++)
     {
-      if (strcmp(vet[i].telefone, busca) == 0)
+      if (strcmp(pessoas[i].telefone, busca) == 0)
       {
-        imprimirRegistro(vet[i], i + 1);
+        printf("Registro %02d\n", i + 1);
+        imprimirPessoa(pessoas[i]);
         encontrado = 1;
         break;
       }
