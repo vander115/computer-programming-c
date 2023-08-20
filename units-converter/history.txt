@@ -1,0 +1,2 @@
+60,00 hora(s) é igual a 2,00 dias(s)
+60,00 minuto(s) é igual a 1,00 hora(s)
